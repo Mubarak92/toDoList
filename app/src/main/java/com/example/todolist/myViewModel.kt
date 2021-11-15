@@ -17,4 +17,5 @@ class myViewModel: ViewModel() {
     val data1: LiveData<Date> = _date
 
 
+
 }

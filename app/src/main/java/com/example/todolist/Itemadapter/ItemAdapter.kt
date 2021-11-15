@@ -47,9 +47,6 @@ class ItemAdapter(
         holder.titalTask.text = item.titalTask1
         holder.descrit.text = item.descriptText
 
-
-
-
     }
 
     override fun getItemCount(): Int {

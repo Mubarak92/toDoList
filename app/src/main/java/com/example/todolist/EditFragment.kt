@@ -5,13 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.todolist.databinding.FragmentAddBinding
+import androidx.fragment.app.activityViewModels
 import com.example.todolist.databinding.FragmentEditBinding
 
 class EditFragment : Fragment() {
 
     var _binding: FragmentEditBinding? = null
     val binding get() = _binding!!
+    private val sharedViewModel: myViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,7 +31,14 @@ class EditFragment : Fragment() {
 
 
 
+
+
         }
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

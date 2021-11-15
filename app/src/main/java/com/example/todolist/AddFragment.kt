@@ -5,16 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import com.example.todolist.databinding.FragmentAddBinding
+
 
 
 class AddFragment : Fragment() {
 
-
-    var _binding: FragmentAddBinding? = null
-    val binding get() = _binding!!
-
+    var binding: FragmentAddBinding? = null
+    private val sharedViewModel: myViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,15 +21,19 @@ class AddFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-_binding = FragmentAddBinding.inflate(inflater,container,false)
-        return binding.root
+val fragmentBining = FragmentAddBinding.inflate(inflater,container,false)
+        binding = fragmentBining
+        return fragmentBining.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.apply {
+        binding?.apply {
 
+//lifecycleOwner = viewLifecycleOwner
+//            viewModel = sharedViewModel
+//            addFragment = this@AddFragment
 
 
         }

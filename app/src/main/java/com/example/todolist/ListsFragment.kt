@@ -5,14 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.todolist.Itemadapter.ItemAdapter
 import com.example.todolist.databinding.FragmentListsBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
 class ListsFragment : Fragment() {
     private var _binding: FragmentListsBinding? = null
     private val binding get() = _binding!!
+    private val sharedViewModel: myViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +38,6 @@ class ListsFragment : Fragment() {
 val action = ListsFragmentDirections.actionListsFragmentToAddFragment()
 findNavController().navigate(action)
         }
-
 
     }
 
