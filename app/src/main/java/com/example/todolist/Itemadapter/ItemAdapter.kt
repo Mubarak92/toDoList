@@ -19,8 +19,8 @@ class ItemAdapter(
 
 
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-        val textView: TextView = view.findViewById(R.id.textView)
-        val textView2: TextView = view.findViewById(R.id.textView2)
+        val textView: TextView = view.findViewById(R.id.TaskTitle)
+        val textView2: TextView = view.findViewById(R.id.Discript)
 
     }
 
@@ -34,8 +34,8 @@ class ItemAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
-        holder.textView.text = context.resources.getString(item.titalTask)
-        holder.textView2.text = context.resources.getString(item.descriptText)
+        //holder.textView.text = context.resources.getString(item.titalTask)
+       // holder.textView2.text = context.resources.getString(item.descriptText)
     }
 
     override fun getItemCount(): Int {

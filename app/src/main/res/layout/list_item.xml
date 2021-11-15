@@ -9,7 +9,7 @@
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
         android:layout_gravity="bottom|end"
         android:clickable="true"
         app:srcCompat="@drawable/ic_launcher_foreground" />
@@ -19,7 +19,7 @@
         android:layout_height="117dp">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/TaskTitle"
             android:layout_width="363dp"
             android:layout_height="66dp"
             android:layout_alignParentTop="true"
@@ -40,7 +40,7 @@
             android:layout_marginBottom="51dp" />
 
         <EditText
-            android:id="@+id/editTextDate"
+            android:id="@+id/Date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -53,13 +53,13 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/Discript"
             android:layout_width="205dp"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="-2dp"
             android:layout_marginBottom="0dp"
-            android:layout_toStartOf="@+id/editTextDate"
+            android:layout_toStartOf="@+id/Date"
             android:text="Discript"
             android:textStyle="italic" />
 
