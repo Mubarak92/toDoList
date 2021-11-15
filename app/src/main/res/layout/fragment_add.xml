@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".AddFragment">
 
-    <TextView
+    <EditText
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="53dp"
@@ -13,28 +13,35 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
-        android:text="TextView" />
+        android:hint="Title Text" />
 
     <CheckBox
         android:id="@+id/checkBox2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/decript"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="-1dp"
-        android:layout_marginTop="85dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="1dp"
         android:text="Done" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="88dp"
+    <EditText
+        android:id="@+id/decript"
+        android:layout_width="408dp"
+        android:layout_height="242dp"
         android:layout_below="@+id/textView"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:text="TextView" />
+        android:hint="Decript" />
+
+    <Button
+        android:id="@+id/add_new_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/checkBox2"
+        android:layout_marginTop="184dp"
+        android:text="Add New" />
+
+
 </RelativeLayout>
 

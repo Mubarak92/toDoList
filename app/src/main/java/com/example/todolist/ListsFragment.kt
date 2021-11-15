@@ -36,6 +36,7 @@ val action = ListsFragmentDirections.actionListsFragmentToAddFragment()
 findNavController().navigate(action)
         }
 
+
     }
 
     override fun onDestroy() {

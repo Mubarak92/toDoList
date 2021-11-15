@@ -25,6 +25,8 @@ class ItemAdapter(
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val titalTask: TextView = view.findViewById(R.id.TaskTitle)
         val descrit: TextView = view.findViewById(R.id.Discript)
+        val titlebutton : Button = view.findViewById(R.id.TaskTitle)
+
        // val add: Button = view.findViewById(R.id.add_task)
     }
 
@@ -38,8 +40,13 @@ class ItemAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
+        holder.titlebutton.setOnClickListener{
+            val action = ListsFragmentDirections.actionListsFragmentToEditFragment()
+            holder.itemView.findNavController().navigate(action)
+        }
         holder.titalTask.text = item.titalTask1
         holder.descrit.text = item.descriptText
+
 
 
 
