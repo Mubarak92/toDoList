@@ -7,17 +7,20 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todolist.Datasource.DataSource
+import com.example.todolist.ListsFragment
 import com.example.todolist.R
 
 class ItemAdapter(
-    private val context: Context?
-    ): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+    private val context: ListsFragment,
+    context1: Context?,
+) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     private val dataset = DataSource().tasks()
 
 
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.textView)
+        val textView2: TextView = view.findViewById(R.id.textView2)
 
     }
 
@@ -31,11 +34,12 @@ class ItemAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
-        holder.textView.text = context?.resources?.getString(item.date)
+        holder.textView.text = context.resources.getString(item.titalTask)
+        holder.textView2.text = context.resources.getString(item.descriptText)
     }
 
-    override fun getItemCount():Int{
-     return dataset.size
+    override fun getItemCount(): Int {
+        return dataset.size
     }
 
 }
