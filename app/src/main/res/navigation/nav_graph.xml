@@ -3,16 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/lists">
+    app:startDestination="@id/listsFragment">
 
     <fragment
-        android:id="@+id/lists"
+        android:id="@+id/listsFragment"
         android:name="com.example.todolist.ListsFragment"
         android:label="fragment_lists"
         tools:layout="@layout/fragment_lists" >
         <action
-            android:id="@+id/action_lists_to_editFragment"
+            android:id="@+id/action_lists_To_add"
             app:destination="@id/editFragment" />
+        <action
+            android:id="@+id/action_listsFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.example.todolist.AddFragment"
+        android:label="fragment_edit"
+        tools:layout="@layout/fragment_add" >
+        <action
+            android:id="@+id/action_add_To_lists"
+            app:destination="@id/listsFragment" />
     </fragment>
     <fragment
         android:id="@+id/editFragment"
@@ -20,7 +32,7 @@
         android:label="fragment_edit"
         tools:layout="@layout/fragment_edit" >
         <action
-            android:id="@+id/action_editFragment_to_lists"
-            app:destination="@id/lists" />
+            android:id="@+id/action_edit_To_lists"
+            app:destination="@id/listsFragment" />
     </fragment>
 </navigation>
