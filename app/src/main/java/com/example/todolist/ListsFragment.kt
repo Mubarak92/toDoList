@@ -42,10 +42,17 @@ findNavController().navigate(action)
         }
 
     }
-    fun addTask() {
-        sharedViewModel.addtask(tasksData(titalTask = title, descriptText = decript.toString()))
-        findNavController().navigate(R.id.action_add_To_lists)
+
+    fun removeTask(){
+
+        val title = binding?.recyclerview.toString()
+
     }
+
+//    fun removetask() {
+//        sharedViewModel.removetask(isRemoving.
+//        findNavController().navigate(R.id.action_add_To_lists)
+//    }
 
     override fun onDestroy() {
         super.onDestroy()

@@ -7,12 +7,16 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todolist.Datasource.DataSource
+import com.example.todolist.Datasource.deleteTask
+import com.example.todolist.Datasource.tasklist
 import com.example.todolist.ListsFragment
 import com.example.todolist.ListsFragmentDirections
 import com.example.todolist.R
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class ItemAdapter(
     context1: ListsFragment,
@@ -24,11 +28,14 @@ class ItemAdapter(
 
 
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-        val titalTask: TextView = view.findViewById(R.id.TaskTitle)
-        val descrit: TextView = view.findViewById(R.id.Discript55)
-        val titlebutton : Button = view.findViewById(R.id.TaskTitle)
-val delete: ImageView= view.findViewById(R.id.deleteimage)
-       // val add: Button = view.findViewById(R.id.add_task)
+        var titalTask: TextView = view.findViewById(R.id.TaskTitle)
+        var descript: TextView = view.findViewById(R.id.Discript)
+        var date: TextView = view.findViewById(R.id.date)
+
+
+        var titlebutton: Button = view.findViewById(R.id.TaskTitle)
+        val delete: Button = view.findViewById(R.id.deletebtn)
+        // val add: Button = view.findViewById(R.id.add_task)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -41,21 +48,29 @@ val delete: ImageView= view.findViewById(R.id.deleteimage)
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
-        holder.delete.setOnClickListener{
 
-        }
-        holder.titlebutton.setOnClickListener{
+        holder.titlebutton.setOnClickListener {
             val action = ListsFragmentDirections.actionListsFragmentToEditFragment()
             holder.itemView.findNavController().navigate(action)
         }
+
         holder.titalTask.text = item.titalTask.toString()
-        holder.descrit.text = item.descriptText.toString()
+        holder.descript.text = item.descriptText.toString()
+        holder.date.text = item.setdate.toString()
+        holder.delete.setOnClickListener {
+//Toast.makeText(holder.itemView.context,"ttt",Toast.LENGTH_SHORT).show()
+                       deleteTask(item.titalTask.toString())
+                        notifyDataSetChanged()
 
-    }
 
-    override fun getItemCount(): Int {
-        return dataset.size
-    }
+        }
+
+
+}
+
+override fun getItemCount(): Int {
+    return dataset.size
+}
 
 }
 

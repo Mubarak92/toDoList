@@ -19,81 +19,106 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="381dp"
-            android:layout_height="49dp"
-            android:layout_alignBottom="@+id/textView"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:text="Edit Text"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/edit_task"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/checkBox2"
-            android:layout_marginEnd="212dp"
-            android:layout_marginBottom="8dp"
-            android:onClick="@{() -> editFragment.editDecript()}"
-            android:text="edit task"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/decript"
-            android:layout_width="408dp"
-            android:layout_height="242dp"
-            android:layout_below="@+id/textView"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="16dp"
-            android:hint="Decript"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            <Button
+                android:id="@+id/edit_task"
+                android:layout_width="364dp"
+                android:layout_height="48dp"
+                android:layout_below="@+id/checkBox2"
+                android:layout_marginTop="32dp"
+                android:onClick="@{() -> editFragment.editDecript()}"
+                android:text="Edit Task"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox2"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="23dp" />
 
-        <EditText
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="53dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:hint="Title Text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            <EditText
+                android:id="@+id/decript"
+                android:layout_width="408dp"
+                android:layout_height="242dp"
+                android:layout_below="@+id/titletask"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"
+                android:hint="Decript"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titletask" />
 
-        <CheckBox
-            android:id="@+id/checkBox2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/decript"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="23dp"
-            android:text="Done"
-            app:layout_constraintBottom_toTopOf="@+id/edit_task"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/decript" />
 
-        <Button
-            android:id="@+id/datepicker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="94dp"
-            android:layout_marginBottom="7dp"
-            android:text="Date"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/decript"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="340dp"
+                android:text="Done"
+                app:layout_constraintTop_toBottomOf="@+id/titletask"
+                tools:layout_editor_absoluteX="70dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/titletask"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="80dp"
+                android:hint="Title Text"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="392dp"
+                android:layout_height="54dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:text="Add New Task"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/titletask"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/setDate"
+                android:layout_width="292dp"
+                android:layout_height="62dp"
+                android:gravity="center"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/checkBox2"
+                app:layout_constraintEnd_toStartOf="@+id/dataPicker"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/decript"
+                tools:text="@tools:sample/date/ddmmyy" >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/dataPicker"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="91dp"
+                android:layout_height="65dp"
+
+                android:layout_below="@+id/btn_datePicker"
+                app:icon="@android:drawable/ic_menu_month"
+                app:layout_constraintBottom_toTopOf="@+id/checkBox2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/decript"
+                tools:ignore="UnknownId" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-    </layout>
+
+
+</layout>
+

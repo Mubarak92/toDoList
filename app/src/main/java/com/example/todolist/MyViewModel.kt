@@ -1,8 +1,6 @@
 package com.example.todolist
 
 
-import android.graphics.Insets.add
-import androidx.core.graphics.Insets.add
 import androidx.core.view.OneShotPreDrawListener.add
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -36,8 +34,9 @@ class MyViewModel : ViewModel() {
         tasklist.add(newdata)
 
     }
-    fun removetask(newdata: tasksData){
-        tasklist.removeAll(listOf(newdata))
+
+    fun removetask(remove: tasksData?){
+        tasklist.remove(remove)
     }
     fun newTask(task: String) {
         _edittask.value = ""

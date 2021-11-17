@@ -8,5 +8,7 @@ class DataSource {
 return tasklist
     }
 }
-
+fun deleteTask(searchingTitle:String){
+    tasklist.removeIf { it.titalTask.toString()==searchingTitle }
+}
 var tasklist:MutableList<tasksData> = mutableListOf()
