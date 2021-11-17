@@ -20,6 +20,9 @@ class MyViewModel : ViewModel() {
     private val _date = MutableLiveData<Int>()
     val date: LiveData<Int> = _date
 
+    private val _isDone = MutableLiveData<Int>()
+    val isDone: LiveData<Int> = _isDone
+
 
     fun setTaskTitle(TaskTitle: String) {
         _edittask.value = TaskTitle

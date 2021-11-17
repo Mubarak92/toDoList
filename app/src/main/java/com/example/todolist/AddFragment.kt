@@ -1,6 +1,7 @@
 package com.example.todolist
 
 import android.app.DatePickerDialog
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,43 +9,41 @@ import android.view.ViewGroup
 import android.widget.DatePicker
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import com.example.todolist.databinding.FragmentAddBinding
 import com.google.android.material.datepicker.MaterialDatePicker
+import java.lang.reflect.Array.set
 import java.text.SimpleDateFormat
 import java.util.*
 
 
-class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener {
+class AddFragment : Fragment() {
 
+    private val calendar = Calendar.getInstance()
     var binding: FragmentAddBinding? = null
     private val sharedViewModel: MyViewModel by activityViewModels()
 
+    fun showDatePicker() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-        pickDate()
-    }
-
-    private fun pickDate() {
-        val datePicker =
-            MaterialDatePicker.Builder.datePicker()
-                .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
-                .setInputMode(MaterialDatePicker.INPUT_MODE_TEXT)
-                .setTitleText("Select date")
-                .build()
-
-        datePicker.show(parentFragmentManager, "tag");
+        val datePicker = MaterialDatePicker.Builder.datePicker()
+            .setTitleText("Select date").setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+            .build()
+        datePicker.show(parentFragmentManager, "DatePicker")
         datePicker.addOnPositiveButtonClickListener {
+
             convertMillisecondsToReadableDate(it, "EEE, MMM d ")
+
         }
+
     }
     private fun convertMillisecondsToReadableDate (dateMilliseconds: Long, datePattern: String): String{
         val format = SimpleDateFormat(datePattern, Locale.getDefault())
         return format.format(Date(dateMilliseconds))
     }
+
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,7 +64,8 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener {
             lifecycleOwner = viewLifecycleOwner
             viewModel = sharedViewModel
             addFragment = this@AddFragment
-
+//checkBox2.isChecked = viewModel.isDone
+            checkBox2.jumpDrawablesToCurrentState()
 
         }
 
@@ -76,23 +76,19 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener {
         val decript = binding?.decript1?.text
         val date = binding?.setDate1?.text
         var done = binding?.checkBox2?.isChecked
-        sharedViewModel.addtask(tasksData(titalTask = title, descriptText = decript, setdate = date,isDone = true))
+        sharedViewModel.addtask(
+            tasksData(
+                titalTask = title,
+                descriptText = decript,
+                setdate = date,
+                isDone = true
+            )
+        )
         findNavController().navigate(R.id.action_add_To_lists)
     }
-
-    fun removeTask(){
-
-    }
-
-
 
     override fun onDestroy() {
         super.onDestroy()
         binding = null
     }
-
-    override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-
-    }
-
 }

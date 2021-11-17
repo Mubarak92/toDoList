@@ -46,9 +46,9 @@ class EditFragment : Fragment() {
     }
 
     fun editDecript(){
-
-        val mytitle = binding?.decript?.text.toString()
-        sharedViewModel.setDescript(mytitle)
+//
+//        val mytitle = binding?.decript?.text.toString()
+//        sharedViewModel.setDescript(mytitle)
 
         findNavController().navigate(R.id.action_edit_To_lists)
     }
