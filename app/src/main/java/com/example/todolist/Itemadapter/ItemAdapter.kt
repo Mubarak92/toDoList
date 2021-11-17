@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -24,9 +25,9 @@ class ItemAdapter(
 
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val titalTask: TextView = view.findViewById(R.id.TaskTitle)
-        val descrit: TextView = view.findViewById(R.id.Discript)
+        val descrit: TextView = view.findViewById(R.id.Discript55)
         val titlebutton : Button = view.findViewById(R.id.TaskTitle)
-
+val delete: ImageView= view.findViewById(R.id.deleteimage)
        // val add: Button = view.findViewById(R.id.add_task)
     }
 
@@ -40,12 +41,15 @@ class ItemAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
+        holder.delete.setOnClickListener{
+
+        }
         holder.titlebutton.setOnClickListener{
             val action = ListsFragmentDirections.actionListsFragmentToEditFragment()
             holder.itemView.findNavController().navigate(action)
         }
-        holder.titalTask.text = item.titalTask1
-        holder.descrit.text = item.descriptText
+        holder.titalTask.text = item.titalTask.toString()
+        holder.descrit.text = item.descriptText.toString()
 
     }
 

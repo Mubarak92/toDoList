@@ -1,37 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".EditFragment">
 
+    <data>
 
+        <variable
+            name="viewModel"
+            type="com.example.todolist.MyViewModel" />
 
-    <RelativeLayout
+        <variable
+            name="editFragment"
+            type="com.example.todolist.EditFragment" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="412dp"
-            android:layout_height="76dp"
+            android:layout_width="381dp"
+            android:layout_height="49dp"
             android:layout_alignBottom="@+id/textView"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="55dp"
             android:text="Edit Text"
             android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/add_new_task"
+            android:id="@+id/edit_task"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/checkBox2"
-            android:layout_marginTop="36dp"
-            android:text="Add New" />
+            android:layout_marginEnd="212dp"
+            android:layout_marginBottom="8dp"
+            android:onClick="@{() -> editFragment.editDecript()}"
+            android:text="edit task"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <EditText
             android:id="@+id/decript"
@@ -40,20 +56,11 @@
             android:layout_below="@+id/textView"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="-2dp"
-            android:hint="Decript" />
-
-        <CheckBox
-            android:id="@+id/checkBox2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/decript"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
-            android:text="Done" />
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="16dp"
+            android:hint="Decript"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <EditText
             android:id="@+id/textView"
@@ -61,10 +68,32 @@
             android:layout_height="53dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="79dp"
-            android:hint="Title Text" />
-    </RelativeLayout>
+            android:hint="Title Text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/decript"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="23dp"
+            android:text="Done"
+            app:layout_constraintBottom_toTopOf="@+id/edit_task"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/decript" />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/datepicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="94dp"
+            android:layout_marginBottom="7dp"
+            android:text="Date"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    </layout>

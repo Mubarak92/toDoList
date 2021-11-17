@@ -9,13 +9,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.todolist.Itemadapter.ItemAdapter
 import com.example.todolist.databinding.FragmentListsBinding
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
 class ListsFragment : Fragment() {
-    private var _binding: FragmentListsBinding? = null
-    private val binding get() = _binding!!
-    private val sharedViewModel: myViewModel by activityViewModels()
+    private var binding: FragmentListsBinding? = null
+    private val sharedViewModel: MyViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,24 +24,32 @@ class ListsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentListsBinding.inflate(inflater, container, false)
-        return binding.root
+        val fragmentListsBinding = FragmentListsBinding.inflate(inflater, container, false)
+
+        binding = fragmentListsBinding
+        return fragmentListsBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 //        super.onViewCreated(view, savedInstanceState)
-        binding.recyclerview.adapter = ItemAdapter(this, context)
-        binding.addTask.setOnClickListener {
+
+
+        binding?.recyclerview!!.adapter = ItemAdapter(this, context)
+        binding?.addTask!!.setOnClickListener {
 
 val action = ListsFragmentDirections.actionListsFragmentToAddFragment()
 findNavController().navigate(action)
         }
 
     }
+    fun addTask() {
+        sharedViewModel.addtask(tasksData(titalTask = title, descriptText = decript.toString()))
+        findNavController().navigate(R.id.action_add_To_lists)
+    }
 
     override fun onDestroy() {
         super.onDestroy()
-        _binding = null
+        binding = null
 
     }
 }

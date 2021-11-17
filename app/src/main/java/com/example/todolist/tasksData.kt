@@ -1,7 +1,5 @@
 package com.example.todolist
 
-import android.widget.CheckBox
-import java.time.LocalDate
-import java.util.*
+import android.text.Editable
 
-data class tasksData(val titalTask1: String, val descriptText: String,val date: Int,val checkBox: Boolean)
+data class tasksData(val titalTask: Editable?, val descriptText: String)
