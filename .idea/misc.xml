@@ -4,13 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/toDoList/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.28703703703703703" />
+        <entry key="..\:/toDoList/app/src/main/res/drawable/ic_baseline_calendar_today_24.xml" value="0.1" />
         <entry key="..\:/toDoList/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.17916666666666667" />
         <entry key="..\:/toDoList/app/src/main/res/drawable/ic_launcher_background.xml" value="0.28703703703703703" />
         <entry key="..\:/toDoList/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/toDoList/app/src/main/res/layout/fragment_add.xml" value="0.1" />
+        <entry key="..\:/toDoList/app/src/main/res/layout/fragment_add.xml" value="0.3333333333333333" />
         <entry key="..\:/toDoList/app/src/main/res/layout/fragment_edit.xml" value="0.1" />
         <entry key="..\:/toDoList/app/src/main/res/layout/fragment_lists.xml" value="0.22" />
-        <entry key="..\:/toDoList/app/src/main/res/layout/list_item.xml" value="0.25833333333333336" />
+        <entry key="..\:/toDoList/app/src/main/res/layout/list_item.xml" value="0.216" />
         <entry key="..\:/toDoList/app/src/main/res/menu/menu.xml" value="0.22" />
       </map>
     </option>

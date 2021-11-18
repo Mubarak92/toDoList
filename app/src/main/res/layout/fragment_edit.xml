@@ -26,27 +26,33 @@
 
             <Button
                 android:id="@+id/edit_ask"
-                android:layout_width="364dp"
+                android:layout_width="280dp"
                 android:layout_height="48dp"
                 android:layout_below="@+id/checkBox2"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
+                android:onClick="@{() -> editFragment.edit()}"
                 android:text="Edit Task"
-                android:onClick="@{() -> editFragment.edite()}"
+                app:layout_constraintEnd_toEndOf="@+id/checkBox2"
+                app:layout_constraintHorizontal_bias="0.133"
+                app:layout_constraintStart_toStartOf="@+id/checkBox2"
                 app:layout_constraintTop_toBottomOf="@+id/checkBox2"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="23dp" />
+                tools:ignore="MissingConstraints" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/decript"
-                android:layout_width="408dp"
-                android:layout_height="242dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="330dp"
+                android:layout_height="188dp"
                 android:layout_below="@+id/titletask"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="20dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
                 android:hint="Decript"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/titletask" >
+                app:layout_constraintEnd_toEndOf="@+id/titletask"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/titletask"
+                app:layout_constraintTop_toBottomOf="@+id/titletask">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/decript1"
@@ -58,40 +64,44 @@
 
             <CheckBox
                 android:id="@+id/checkBox2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="237dp"
+                android:layout_height="48dp"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="340dp"
-                android:text="Done"
+                android:layout_marginStart="40dp"
 
-                app:layout_constraintTop_toBottomOf="@+id/titletask"
-                tools:layout_editor_absoluteX="70dp" />
+                android:layout_marginTop="452dp"
+                android:text="Done"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/titletask"
-                android:layout_width="match_parent"
-                android:layout_height="53dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="330dp"
+                android:layout_height="78dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="80dp"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteX="0dp" >
+                android:layout_marginEnd="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/titletask1"
+
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
-                    android:layout_height="76dp"
+                    android:layout_height="match_parent"
                     android:hint="Title Text" />
-
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="392dp"
-                android:layout_height="54dp"
-                android:layout_marginStart="8dp"
+                android:layout_width="266dp"
+                android:layout_height="51dp"
+                android:layout_marginStart="40dp"
                 android:layout_marginBottom="16dp"
                 android:gravity="center"
                 android:text="Edit Task"
@@ -103,36 +113,41 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/setDate"
-                android:layout_width="292dp"
-                android:layout_height="62dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="247dp"
+                android:layout_height="70dp"
+                android:layout_marginBottom="8dp"
                 android:gravity="center"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/checkBox2"
                 app:layout_constraintEnd_toStartOf="@+id/dataPicker"
+                app:layout_constraintHorizontal_bias="0.677"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="@tools:sample/date/ddmmyy" >
+
+                app:startIconDrawable="@drawable/ic_baseline_calendar_today_24"
+                tools:text="@tools:sample/date/ddmmyy">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/setDate1"
-                    android:hint="Date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    />
-
+                    android:hint="Date" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-
-                android:gravity="center"
+android:onClick="@{() -> editFragment.showDatePicker()}"
                 android:id="@+id/dataPicker"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="91dp"
-                android:layout_height="65dp"
-                app:icon="@android:drawable/ic_menu_month"
-                app:layout_constraintBottom_toTopOf="@+id/checkBox2"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="65dp"
+                android:layout_height="58dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="68dp"
+                android:gravity="center"
 
-                />
+                app:icon="@android:drawable/ic_menu_month"
+                app:layout_constraintBottom_toTopOf="@+id/edit_ask"
+                app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

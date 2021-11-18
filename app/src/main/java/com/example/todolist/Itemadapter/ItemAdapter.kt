@@ -62,8 +62,6 @@ private val dataset:List<tasksData>
 //Toast.makeText(holder.itemView.context,"ttt",Toast.LENGTH_SHORT).show()
                        deleteTask(item.titalTask.toString())
                         notifyDataSetChanged()
-
-
         }
 
 

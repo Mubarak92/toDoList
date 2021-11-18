@@ -20,7 +20,7 @@ import java.util.*
 
 class AddFragment : Fragment() {
 
-    private val calendar = Calendar.getInstance()
+     var calendar = ""
     var binding: FragmentAddBinding? = null
     private val sharedViewModel: MyViewModel by activityViewModels()
 
@@ -29,17 +29,20 @@ class AddFragment : Fragment() {
         val datePicker = MaterialDatePicker.Builder.datePicker()
             .setTitleText("Select date").setSelection(MaterialDatePicker.todayInUtcMilliseconds())
             .build()
+
         datePicker.show(parentFragmentManager, "DatePicker")
         datePicker.addOnPositiveButtonClickListener {
 
-            convertMillisecondsToReadableDate(it, "EEE, MMM d ")
+         calendar=   readDate(it, "EEE, MMM dd ")
+            binding?.setDate1?.setText(calendar)
 
         }
 
+
     }
-    private fun convertMillisecondsToReadableDate (dateMilliseconds: Long, datePattern: String): String{
+    private fun readDate (setDate: Long, datePattern: String): String{
         val format = SimpleDateFormat(datePattern, Locale.getDefault())
-        return format.format(Date(dateMilliseconds))
+        return format.format(Date(setDate))
     }
 
 

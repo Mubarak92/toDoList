@@ -14,7 +14,12 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="257dp"
-        android:backgroundTint="#244F71">
+        android:backgroundTint="#244F71"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp"
+        app:cardMaxElevation="1dp"
+        app:cardUseCompatPadding="true"
+        >
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,26 +29,28 @@
 
             <Button
                 android:id="@+id/deletebtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="49dp"
                 android:layout_alignEnd="@+id/TaskTitle"
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="4dp"
                 android:layout_marginBottom="68dp"
-                android:text="delete"
+                android:drawableBottom="@drawable/ic_baseline_delete_24"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/Discript" />
 
             <Button
                 android:id="@+id/TaskTitle"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="350dp"
-                android:backgroundTint="#53C1B7"
-                android:layout_height="69dp"
+                android:layout_width="329dp"
+                android:layout_height="71dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:backgroundTint="#76AAC1"
                 android:text="Task Title"
                 android:textColor="@color/black"
                 android:textSize="25dp"
@@ -69,8 +76,9 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="4dp"
-                android:text="text "
+                android:backgroundTint="#FF76AAC1"
                 android:textStyle="bold"
+                android:background="@drawable/rounded_corner_with_border"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/date"
@@ -78,13 +86,15 @@
 
             <TextView
                 android:id="@+id/date"
-                android:layout_width="366dp"
-                android:layout_height="43dp"
+                android:layout_width="320dp"
+                android:layout_height="40dp"
                 android:layout_above="@+id/Discript"
                 android:layout_below="@+id/TaskTitle"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_toStartOf="@+id/checkBox"
+                android:background="@drawable/rounded_corner_with_border"
+                android:backgroundTint="#FF76AAC1"
                 android:text="TextView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/TaskTitle" />
