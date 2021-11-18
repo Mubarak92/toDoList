@@ -29,33 +29,29 @@ class EditFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        arguments?.let {
-//            binding?.decript?.text = it.getString()
-//        }
 
         binding?.apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = sharedViewModel
             editFragment = this@EditFragment
 
+        }
+    }
+    fun edite(){
 
+        val title = binding?.titletask1?.text
+        val decript = binding?.decript1?.text
+        val date = binding?.setDate1?.text
+        var done = binding?.checkBox2?.isChecked
+        var temp = 0
+        arguments?.let {
+            temp=it?.getInt("index")
         }
 
-
-
-    }
-
-    fun editDecript(){
-//
-//        val mytitle = binding?.decript?.text.toString()
-//        sharedViewModel.setDescript(mytitle)
-
+        sharedViewModel.edite(temp,tasksData(title,decript,date,done))
         findNavController().navigate(R.id.action_edit_To_lists)
-    }
 
-//    fun goToNextScreen() {
-//        findNavController().navigate(R.id.action_edit_To_lists)
-//    }
+    }
     override fun onDestroy()
     {
         super.onDestroy()

@@ -31,6 +31,7 @@
                 android:layout_below="@+id/checkBox2"
                 android:layout_marginTop="32dp"
                 android:text="Edit Task"
+                android:onClick="@{() -> editFragment.edite()}"
                 app:layout_constraintTop_toBottomOf="@+id/checkBox2"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="23dp" />

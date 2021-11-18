@@ -16,15 +16,16 @@ import com.example.todolist.Datasource.tasklist
 import com.example.todolist.ListsFragment
 import com.example.todolist.ListsFragmentDirections
 import com.example.todolist.R
+import com.example.todolist.tasksData
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class ItemAdapter(
-    context1: ListsFragment,
-    private val context: Context?,
 
+    private val context: Context?,
+private val dataset:List<tasksData>
     ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
-    private val dataset = DataSource().tasks()
+//    private val dataset = DataSource().tasks()
 
 
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {

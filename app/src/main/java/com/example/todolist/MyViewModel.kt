@@ -47,6 +47,9 @@ class MyViewModel : ViewModel() {
         _date.value = 0
 
     }
+    fun edite(index : Int , newdata:tasksData){
+        tasklist.set(index,newdata)
+    }
 
 //    init {
 //        newTask(task)

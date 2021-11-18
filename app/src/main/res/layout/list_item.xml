@@ -13,7 +13,9 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="257dp">
+        android:layout_height="257dp"
+        android:backgroundTint="#244F71">
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -27,7 +29,7 @@
                 android:layout_alignEnd="@+id/TaskTitle"
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="4dp"
-                android:layout_marginBottom="92dp"
+                android:layout_marginBottom="68dp"
                 android:text="delete"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
@@ -35,10 +37,13 @@
             <Button
                 android:id="@+id/TaskTitle"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="363dp"
-                android:layout_height="66dp"
+                android:layout_width="350dp"
+                android:backgroundTint="#53C1B7"
+                android:layout_height="69dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:text="Task Title"
                 android:textColor="@color/black"
                 android:textSize="25dp"
@@ -53,29 +58,32 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="4dp"
-                android:layout_marginBottom="48dp"
-                app:layout_constraintBottom_toTopOf="@+id/showMenuBtn"
+                android:layout_marginBottom="188dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
                 android:id="@+id/Discript"
-                android:layout_width="202dp"
-                android:layout_height="94dp"
+                android:layout_width="286dp"
+                android:layout_height="102dp"
                 android:layout_alignParentBottom="true"
+                android:layout_marginStart="16dp"
                 android:layout_marginBottom="4dp"
                 android:text="text "
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/showMenuBtn"
-                app:layout_constraintTop_toBottomOf="@+id/date" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/date"
+                app:layout_constraintVertical_bias="0.454" />
 
             <TextView
                 android:id="@+id/date"
-                android:layout_width="415dp"
-                android:layout_height="38dp"
+                android:layout_width="366dp"
+                android:layout_height="43dp"
                 android:layout_above="@+id/Discript"
                 android:layout_below="@+id/TaskTitle"
-                android:layout_marginTop="9dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_toStartOf="@+id/checkBox"
                 android:text="TextView"
                 app:layout_constraintStart_toStartOf="parent"

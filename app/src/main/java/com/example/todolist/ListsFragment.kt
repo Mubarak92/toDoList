@@ -1,12 +1,14 @@
 package com.example.todolist
 
 import android.os.Bundle
+import android.service.autofill.Dataset
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.todolist.Datasource.DataSource
 import com.example.todolist.Itemadapter.ItemAdapter
 import com.example.todolist.databinding.FragmentListsBinding
 
@@ -34,7 +36,7 @@ class ListsFragment : Fragment() {
 //        super.onViewCreated(view, savedInstanceState)
 
 
-        binding?.recyclerview!!.adapter = ItemAdapter(this, context)
+        binding?.recyclerview!!.adapter = ItemAdapter(this.requireContext(), DataSource().tasks())
         binding?.addTask!!.setOnClickListener {
 
 val action = ListsFragmentDirections.actionListsFragmentToAddFragment()
