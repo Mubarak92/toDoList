@@ -24,6 +24,7 @@ class AddFragment : Fragment() {
     var binding: FragmentAddBinding? = null
     private val sharedViewModel: MyViewModel by activityViewModels()
 
+
     fun showDatePicker() {
 
         val datePicker = MaterialDatePicker.Builder.datePicker()
@@ -33,7 +34,7 @@ class AddFragment : Fragment() {
         datePicker.show(parentFragmentManager, "DatePicker")
         datePicker.addOnPositiveButtonClickListener {
 
-         calendar=   readDate(it, "EEE, MMM dd ")
+         calendar=   readDate(it, "dd/MM/yyyy")
             binding?.setDate1?.setText(calendar)
 
         }
@@ -79,6 +80,7 @@ class AddFragment : Fragment() {
         val decript = binding?.decript1?.text
         val date = binding?.setDate1?.text
         var done = binding?.checkBox2?.isChecked
+
         sharedViewModel.addtask(
             tasksData(
                 titalTask = title,

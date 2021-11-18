@@ -49,7 +49,7 @@ class EditFragment : Fragment() {
         datePicker.show(parentFragmentManager, "DatePicker")
         datePicker.addOnPositiveButtonClickListener {
 
-            calendar= readDate(it, "EEE, MMM d ")
+            calendar= readDate(it, "dd/MM/yyyy")
             binding.setDate1.setText(calendar)
 
         }

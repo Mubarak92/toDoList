@@ -27,6 +27,19 @@
             android:layout_height="253dp">
 
 
+            <ImageView
+                android:id="@+id/isDone"
+                android:layout_width="36dp"
+                android:layout_height="51dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="45dp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/Discript"
+                app:layout_constraintTop_toBottomOf="@+id/deletebtn"
+                app:srcCompat="@drawable/ic_baseline_priority_high_24" />
+
             <Button
                 android:id="@+id/deletebtn"
                 android:layout_width="48dp"

@@ -1,6 +1,8 @@
 package com.example.todolist.Itemadapter
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +20,8 @@ import com.example.todolist.ListsFragmentDirections
 import com.example.todolist.R
 import com.example.todolist.tasksData
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ItemAdapter(
 
@@ -33,7 +37,7 @@ private val dataset:List<tasksData>
         var descript: TextView = view.findViewById(R.id.Discript)
         var date: TextView = view.findViewById(R.id.date)
 
-
+var isdone: ImageView = view.findViewById(R.id.isDone)
         var titlebutton: Button = view.findViewById(R.id.TaskTitle)
         val delete: Button = view.findViewById(R.id.deletebtn)
         // val add: Button = view.findViewById(R.id.add_task)
@@ -47,17 +51,30 @@ private val dataset:List<tasksData>
 
     }
 
+    @SuppressLint("SimpleDateFormat")
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
+
+
+
+
+        if (item.setdate.toString() != ""){
+            val nowDate = Date()
+            val formatter = SimpleDateFormat("dd/MM/yyyy")
+            val tasktime = formatter.parse(item.setdate.toString())
+            if (nowDate.after(tasktime)) {
+                holder.isdone.visibility = View.VISIBLE
+            }
+        }
 
         holder.titlebutton.setOnClickListener {
             val action = ListsFragmentDirections.actionListsFragmentToEditFragment()
             holder.itemView.findNavController().navigate(action)
         }
 
-        holder.titalTask.text = item.titalTask.toString()
-        holder.descript.text = item.descriptText.toString()
-        holder.date.text = item.setdate.toString()
+        holder.titalTask.text = item.titalTask
+        holder.descript.text = item.descriptText
+        holder.date.text = item.setdate
         holder.delete.setOnClickListener {
 //Toast.makeText(holder.itemView.context,"ttt",Toast.LENGTH_SHORT).show()
                        deleteTask(item.titalTask.toString())
