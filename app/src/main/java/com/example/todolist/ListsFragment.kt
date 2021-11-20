@@ -39,8 +39,8 @@ class ListsFragment : Fragment() {
         binding?.recyclerview!!.adapter = ItemAdapter(this.requireContext(), DataSource().tasks())
         binding?.addTask!!.setOnClickListener {
 
-val action = ListsFragmentDirections.actionListsFragmentToAddFragment()
-findNavController().navigate(action)
+            val action = ListsFragmentDirections.actionListsFragmentToAddFragment()
+            findNavController().navigate(action)
         }
 
     }

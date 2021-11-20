@@ -20,7 +20,7 @@ import java.util.*
 
 class AddFragment : Fragment() {
 
-     var calendar = ""
+    var calendar = ""
     var binding: FragmentAddBinding? = null
     private val sharedViewModel: MyViewModel by activityViewModels()
 
@@ -34,19 +34,18 @@ class AddFragment : Fragment() {
         datePicker.show(parentFragmentManager, "DatePicker")
         datePicker.addOnPositiveButtonClickListener {
 
-         calendar=   readDate(it, "dd/MM/yyyy")
+            calendar = readDate(it, "dd/MM/yyyy")
             binding?.setDate1?.setText(calendar)
 
         }
 
 
     }
-    private fun readDate (setDate: Long, datePattern: String): String{
+
+    private fun readDate(setDate: Long, datePattern: String): String {
         val format = SimpleDateFormat(datePattern, Locale.getDefault())
         return format.format(Date(setDate))
     }
-
-
 
 
     override fun onCreateView(
@@ -68,29 +67,30 @@ class AddFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
             viewModel = sharedViewModel
             addFragment = this@AddFragment
-//checkBox2.isChecked = viewModel.isDone
-            checkBox2.jumpDrawablesToCurrentState()
 
         }
 
     }
 
-    fun addTask() {
+        fun addTask() {
         val title = binding?.titletask1?.text
         val decript = binding?.decript1?.text
         val date = binding?.setDate1?.text
-        var done = binding?.checkBox2?.isChecked
+        val done = binding?.doneCheck?.isChecked
 
         sharedViewModel.addtask(
             tasksData(
                 titalTask = title,
                 descriptText = decript,
                 setdate = date,
-                isDone = true
+                isDone = done == true
             )
         )
         findNavController().navigate(R.id.action_add_To_lists)
     }
+
+
+
 
     override fun onDestroy() {
         super.onDestroy()

@@ -61,21 +61,22 @@ class EditFragment : Fragment() {
 
     }
 
-
     fun edit(){
 
         val title = binding.titletask1.text
         val decript = binding.decript1.text
         val date = binding.setDate1.text
-        var done = binding.checkBox2.isChecked
+        val done = binding.checkBox2.isChecked
         var temp = 0
         arguments?.let {
-            temp=it?.getInt("index")
+            temp=it.getInt("index")
         }
-        sharedViewModel.edite(temp,tasksData(title,decript,date,done))
+        sharedViewModel.edit(temp,tasksData(title,decript,date,done))
         findNavController().navigate(R.id.action_edit_To_lists)
-
     }
+
+
+
 
     override fun onDestroy()
     {

@@ -1,7 +1,6 @@
 package com.example.todolist
 
 
-import androidx.core.view.OneShotPreDrawListener.add
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -33,7 +32,8 @@ class MyViewModel : ViewModel() {
     }
 
 
-    fun addtask(newdata:tasksData){
+
+    fun addtask(newdata: tasksData){
         tasklist.add(newdata)
 
     }
@@ -47,12 +47,11 @@ class MyViewModel : ViewModel() {
         _date.value = 0
 
     }
-    fun edite(index : Int , newdata:tasksData){
+
+
+    fun edit(index : Int , newdata:tasksData){
         tasklist.set(index,newdata)
     }
 
-//    init {
-//        newTask(task)
-//    }
 
 }

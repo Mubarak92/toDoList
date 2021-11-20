@@ -26,8 +26,8 @@ import java.util.*
 class ItemAdapter(
 
     private val context: Context?,
-private val dataset:List<tasksData>
-    ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+    private val dataset:List<tasksData>
+) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
 //    private val dataset = DataSource().tasks()
 
@@ -37,7 +37,7 @@ private val dataset:List<tasksData>
         var descript: TextView = view.findViewById(R.id.Discript)
         var date: TextView = view.findViewById(R.id.date)
 
-var isdone: ImageView = view.findViewById(R.id.isDone)
+        var isdone: ImageView = view.findViewById(R.id.isDone)
         var titlebutton: Button = view.findViewById(R.id.TaskTitle)
         val delete: Button = view.findViewById(R.id.deletebtn)
         // val add: Button = view.findViewById(R.id.add_task)
@@ -77,16 +77,16 @@ var isdone: ImageView = view.findViewById(R.id.isDone)
         holder.date.text = item.setdate
         holder.delete.setOnClickListener {
 //Toast.makeText(holder.itemView.context,"ttt",Toast.LENGTH_SHORT).show()
-                       deleteTask(item.titalTask.toString())
-                        notifyDataSetChanged()
+            deleteTask(item.titalTask.toString())
+            notifyDataSetChanged()
         }
 
 
-}
+    }
 
-override fun getItemCount(): Int {
-    return dataset.size
-}
+    override fun getItemCount(): Int {
+        return dataset.size
+    }
 
 }
 

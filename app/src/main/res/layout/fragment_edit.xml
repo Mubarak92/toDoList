@@ -16,7 +16,7 @@
     </data>
 
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -150,7 +150,7 @@ android:onClick="@{() -> editFragment.showDatePicker()}"
                 app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </RelativeLayout>
 
 
 

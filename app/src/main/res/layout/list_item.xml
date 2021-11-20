@@ -14,7 +14,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="257dp"
-        android:backgroundTint="#244F71"
+        android:backgroundTint="#F1D9B6"
         app:cardCornerRadius="4dp"
         app:cardElevation="4dp"
         app:cardMaxElevation="1dp"
@@ -108,7 +108,7 @@
                 android:layout_toStartOf="@+id/checkBox"
                 android:background="@drawable/rounded_corner_with_border"
                 android:backgroundTint="#FF76AAC1"
-                android:text="TextView"
+
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/TaskTitle" />
         </androidx.constraintlayout.widget.ConstraintLayout>
